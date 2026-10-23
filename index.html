@@ -47,16 +47,15 @@
         .section-title { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-white); }
         .table-responsive { width: 100%; overflow-x: hidden; flex-grow: 1; }
         
-        /* Таблица адаптирована по ширине */
         table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
-        /* Наименования в шапке уменьшены, чтобы помещаться на страницу */
         th { color: var(--text-muted); font-weight: 600; padding: 10px 2px; border-bottom: 3px solid var(--border-color); text-transform: uppercase; font-size: 12px; letter-spacing: 0.02em; }
-        td { padding: 14px 2px; border-bottom: 2px solid var(--border-color); vertical-align: middle; color: #f2f4f7; }
         
+        th.th-total { font-size: 10px; }
+        
+        td { padding: 14px 2px; border-bottom: 2px solid var(--border-color); vertical-align: middle; color: #f2f4f7; }
         td.text-label { font-size: 20px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; font-weight: 500; }
         
-        /* Размеры шрифта цифр уменьшены до 20px для идеального размещения */
-        input[type="number"] { width: 100%; padding: 10px 4px; background-color: var(--bg-input); border: 2px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 20px; color: var(--text-white); font-weight: 600; -webkit-appearance: none; margin: 0; text-align: center; box-sizing: border-box; }
+        input[type="number"] { width: 100%; padding: 10px 4px; background-color: var(--bg-input); border: 2px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 15px; color: var(--text-white); font-weight: 600; -webkit-appearance: none; margin: 0; text-align: center; box-sizing: border-box; }
         input[type="number"]:focus { outline: none; border-color: var(--brand-gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
         
         .row-total { font-weight: 700; background-color: rgba(255,255,255,0.03); border-top: 3px solid var(--border-color); }
@@ -64,9 +63,13 @@
         .text-right { text-align: right; font-weight: 700; font-size: 20px; }
         .currency { color: var(--brand-gold); font-size: 14px; font-weight: 600; margin-left: 2px; }
         
+        td.text-right { font-size: 16px; }
+        
         .info-block { display: grid; grid-template-columns: 1fr; gap: 20px; flex-grow: 1; justify-content: center; align-content: center; width: 100%; }
         .info-group { display: flex; flex-direction: column; gap: 8px; width: 100%; }
         .info-group label { font-size: 20px; color: var(--text-white); font-weight: 600; white-space: normal; }
+        
+        .info-group input[type="number"] { font-size: 20px; }
         
         .block-total-bar { margin-top: 25px; padding-top: 15px; border-top: 3px solid var(--border-color); font-weight: 700; text-align: right; font-size: 20px; color: var(--text-muted); }
         .block-total-bar span { color: var(--brand-gold); font-size: 20px; }
@@ -92,6 +95,7 @@
         .dash-card.success { border: 3px solid var(--brand-gold); }
         .dash-label { font-size: 16px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em; white-space: normal; }
         .dash-val { font-size: 32px; font-weight: 800; color: var(--brand-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.2); }
+        .dash-card.highlight input[type="number"] { font-size: 32px; }
     </style>
 </head>
 <body>
@@ -106,6 +110,7 @@
         <button class="btn-gray" id="undo-btn" onclick="restoreMaterials()" disabled>↩️ Назад</button>
         <button class="btn-gold" onclick="clearMaterialQuantities()">✨ Очистить объемы</button>
     </div>
+    
     <!-- РАЗДЕЛ 1: КОСМЕТИКА -->
     <div class="section-card">
         <div class="section-header">
@@ -120,7 +125,7 @@
                         <th width="16%">Грамм</th>
                         <th width="14%">Цена</th>
                         <th width="14%">Вес шт</th>
-                        <th width="14%" class="text-right">Всего</th>
+                        <th width="14%" class="text-right th-total">Всего</th>
                     </tr>
                 </thead>
                 <tbody id="materials-body"></tbody>
@@ -131,6 +136,7 @@
             </table>
         </div>
     </div>
+    
     <!-- РАЗДЕЛ 2: РАСХОДНИКИ -->
     <div class="section-card">
         <div class="section-header">
@@ -144,7 +150,7 @@
                         <th width="50%">Расходник</th>
                         <th width="18%">Кол-во</th>
                         <th width="16%">Цена</th>
-                        <th width="16%" class="text-right">Всего</th>
+                        <th width="16%" class="text-right th-total">Всего</th>
                     </tr>
                 </thead>
                 <tbody id="disposables-body"></tbody>
@@ -171,6 +177,7 @@
         </div>
         <div class="block-total-bar">ИТОГО АРЕНДА НА УСЛУГУ: <span id="total-sec3">0.00</span><span class="currency">BYN</span></div>
     </div>
+    
     <!-- РАЗДЕЛ 4: ЭКРАН АМОРТИЗАЦИИ -->
     <div class="section-card">
         <div class="section-header">
@@ -184,7 +191,7 @@
                         <th width="50%">Имущество</th>
                         <th width="18%">Цена</th>
                         <th width="16%">Срок</th>
-                        <th width="16%" class="text-right">Всего</th>
+                        <th width="16%" class="text-right th-total">Всего</th>
                     </tr>
                 </thead>
                 <tbody id="amortization-body"></tbody>
@@ -195,6 +202,7 @@
             </table>
         </div>
     </div>
+    
     <!-- РАЗДЕЛ 5: ЭКРАН СТОИМОСТИ ЧАСА -->
     <div class="section-card">
         <div class="section-header">
@@ -209,6 +217,7 @@
         </div>
         <div class="block-total-bar">СТОИМОСТЬ ВРЕМЕНИ МАСТЕРА: <span id="total-sec5">0.00</span><span class="currency">BYN</span></div>
     </div>
+    
     <!-- ЭКРАН КОНВЕРТОВ И ИНФОГРАФИКИ -->
     <div class="section-card" style="min-height: auto;">
         <div class="section-header"><div class="section-icon">💼</div><div class="section-title">Финансовые конверты</div></div>
@@ -230,6 +239,7 @@
             <div class="legend-item"><span class="legend-color" style="background: var(--slate-gray)"></span>Инструмент</div>
         </div>
     </div>
+    
     <!-- ЭКРАН ФИНАЛЬНЫХ РАСЧЕТОВ -->
     <div class="dashboard-grid">
         <div class="dash-card">
@@ -273,6 +283,7 @@
         { name: "Тележка парикмахерская", cost: 350, years: 7 }, { name: "Стул мастера", cost: 250, years: 7 }
     ];
     let backupMaterials = [], backupDisposables = [];
+    
     function initApp() {
         const matBody = document.getElementById('materials-body');
         initialMaterials.forEach((item, idx) => {
@@ -288,6 +299,7 @@
         });
         calculateAll();
     }
+    
     function clearMaterialQuantities() {
         backupMaterials = []; backupDisposables = [];
         initialMaterials.forEach((_, idx) => { const input = document.getElementById(`mat-used-${idx}`); backupMaterials.push(input.value); input.value = 0; });
@@ -295,12 +307,14 @@
         document.getElementById('undo-btn').disabled = false;
         calculateAll();
     }
+    
     function restoreMaterials() {
         if (backupMaterials.length > 0) initialMaterials.forEach((_, idx) => { document.getElementById(`mat-used-${idx}`).value = backupMaterials[idx]; });
         if (backupDisposables.length > 0) initialDisposables.forEach((_, idx) => { document.getElementById(`disp-used-${idx}`).value = backupDisposables[idx]; });
         document.getElementById('undo-btn').disabled = true;
         calculateAll();
     }
+    
     function calculateAll() {
         let totalSec1 = 0;
         initialMaterials.forEach((_, idx) => {
