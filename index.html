@@ -58,8 +58,14 @@
         input[type="number"] { width: 100%; padding: 10px 4px; background-color: var(--bg-input); border: 2px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 15px; color: var(--text-white); font-weight: 600; -webkit-appearance: none; margin: 0; text-align: center; box-sizing: border-box; }
         input[type="number"]:focus { outline: none; border-color: var(--brand-gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15); }
         
+        /* Дополнительное уменьшение шрифта для графы "Цена" в первом разделе */
+        .price-input { font-size: 13px !important; }
+        
         .row-total { font-weight: 700; background-color: rgba(255,255,255,0.03); border-top: 3px solid var(--border-color); }
-        .row-total td.text-label { font-size: 20px; }
+        
+        /* Уменьшение шрифта текста "ИТОГО ПО РАЗДЕЛУ", чтобы не переносился BYN */
+        .row-total td.text-label { font-size: 15px; }
+        
         .text-right { text-align: right; font-weight: 700; font-size: 20px; }
         .currency { color: var(--brand-gold); font-size: 14px; font-weight: 600; margin-left: 2px; }
         
@@ -96,9 +102,6 @@
         .dash-label { font-size: 16px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em; white-space: normal; }
         .dash-val { font-size: 32px; font-weight: 800; color: var(--brand-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.2); }
         .dash-card.highlight input[type="number"] { font-size: 32px; }
-    </style>
-</head>
-<body>
 <div class="container">
     <header>
         <div class="logo-main">SPA MASTER</div>
