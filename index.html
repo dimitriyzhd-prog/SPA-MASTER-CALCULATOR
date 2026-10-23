@@ -24,7 +24,6 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* Базовый мобильный шрифт оптимизирован */
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-white); line-height: 1.4; padding: 15px 8px; padding-top: calc(15px + env(safe-area-inset-top)); font-size: 24px; overflow-x: hidden; width: 100%; }
         .container { width: 100%; max-width: 1000px; margin: 0 auto; overflow-x: hidden; }
         
@@ -52,23 +51,22 @@
         th { color: var(--text-muted); font-weight: 600; padding: 10px 4px; border-bottom: 3px solid var(--border-color); text-transform: uppercase; font-size: 13px; letter-spacing: 0.03em; }
         td { padding: 14px 4px; border-bottom: 2px solid var(--border-color); vertical-align: middle; color: #f2f4f7; }
         
-        /* Текст разделов уменьшен на 30% (с 40px до 28px) */
-        td.text-label { font-size: 28px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; }
+        td.text-label { font-size: 20px; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; font-weight: 500; }
         
         input[type="number"] { width: 100%; padding: 12px 6px; background-color: var(--bg-input); border: 2px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 24px; color: var(--text-white); font-weight: 600; -webkit-appearance: none; margin: 0; text-align: center; box-sizing: border-box; }
         input[type="number"]:focus { outline: none; border-color: var(--brand-gold); box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15); }
         
         .row-total { font-weight: 700; background-color: rgba(255,255,255,0.03); border-top: 3px solid var(--border-color); }
-        .row-total td.text-label { font-size: 28px; }
+        .row-total td.text-label { font-size: 20px; }
         .text-right { text-align: right; font-weight: 700; font-size: 24px; }
         .currency { color: var(--brand-gold); font-size: 16px; font-weight: 600; margin-left: 3px; }
         
         .info-block { display: grid; grid-template-columns: 1fr; gap: 20px; flex-grow: 1; justify-content: center; align-content: center; width: 100%; }
         .info-group { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-        .info-group label { font-size: 28px; color: var(--text-white); font-weight: 600; white-space: normal; } /* Текст меток также уменьшен */
+        .info-group label { font-size: 20px; color: var(--text-white); font-weight: 600; white-space: normal; }
         
-        .block-total-bar { margin-top: 25px; padding-top: 15px; border-top: 3px solid var(--border-color); font-weight: 700; text-align: right; font-size: 28px; color: var(--text-muted); }
-        .block-total-bar span { color: var(--brand-gold); font-size: 28px; }
+        .block-total-bar { margin-top: 25px; padding-top: 15px; border-top: 3px solid var(--border-color); font-weight: 700; text-align: right; font-size: 24px; color: var(--text-muted); }
+        .block-total-bar span { color: var(--brand-gold); font-size: 26px; }
         .analysis-container { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 35px; width: 100%; }
         
         .envelopes-grid { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
@@ -76,12 +74,12 @@
         .envelope-box.gold-accent { border-left-color: var(--brand-gold); }
         .envelope-box.tax { border-left-color: var(--accent-red); }
         .envelope-info { display: flex; flex-direction: column; flex-grow: 1; margin-right: 10px; }
-        .envelope-title { font-size: 22px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 0.03em; white-space: normal; } /* Текст конвертов уменьшен */
+        .envelope-title { font-size: 16px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 0.03em; white-space: normal; }
         .envelope-value { font-size: 28px; font-weight: 800; color: var(--text-white); margin-top: 4px; }
         
         .chart-box { background: var(--bg-card); border: 2px solid var(--border-color); border-radius: 20px; padding: 30px 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); width: 100%; box-sizing: border-box; }
         .pie-chart { width: 200px; height: 220px; border-radius: 50%; background: conic-gradient(var(--slate-gray) 0% 100%); margin-bottom: 25px; border: 4px solid var(--border-color); box-shadow: 0 0 25px rgba(0,0,0,0.6); }
-        .chart-legend { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 26px; color: var(--text-muted); font-weight: 500; } /* Текст легенды уменьшен */
+        .chart-legend { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 18px; color: var(--text-muted); font-weight: 500; }
         .legend-item { display: flex; align-items: center; gap: 10px; }
         .legend-color { width: 14px; height: 14px; border-radius: 3px; }
         
@@ -89,7 +87,7 @@
         .dash-card { background: var(--bg-card); padding: 35px 20px; border-radius: 20px; border: 2px solid var(--border-color); text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 180px; box-shadow: 0 15px 40px rgba(0,0,0,0.5); width: 100%; box-sizing: border-box; }
         .dash-card.highlight { border: 3px solid var(--brand-gold); background: linear-gradient(145deg, var(--bg-card), rgba(212, 175, 55, 0.03)); }
         .dash-card.success { border: 3px solid var(--brand-gold); }
-        .dash-label { font-size: 22px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em; white-space: normal; } /* Итоговые метки уменьшены */
+        .dash-label { font-size: 16px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; font-weight: 700; letter-spacing: 0.05em; white-space: normal; }
         .dash-val { font-size: 42px; font-weight: 800; color: var(--brand-gold); text-shadow: 0 4px 15px rgba(212,175,55,0.2); }
     </style>
 </head>
@@ -133,7 +131,7 @@
     <!-- РАЗДЕЛ 2: РАСХОДНИКИ -->
     <div class="section-card">
         <div class="section-header">
-            <div class="section-icon">🎬</div>
+            <div class="section-icon">🎞️</div>
             <div class="section-title">2. Расходники одноразовые</div>
         </div>
         <div class="table-responsive">
@@ -156,7 +154,7 @@
     </div>
 </div>
 <div class="container">
-    <!-- РАЗДЕЛ 3: ЭКРАН АРЕНДЫ -->
+    <!-- РАЗДЕЛ 3: ЭКРАН АРЕНДЫ (Иконка кресла 💺) -->
     <div class="section-card">
         <div class="section-header">
             <div class="section-icon">💺</div>
@@ -331,7 +329,6 @@
             const amort = (cost / years / totalWorkingHoursInYear) * serviceHours; totalSec4 += amort;
             document.getElementById(`tool-amort-${idx}`).innerText = amort.toFixed(2);
         });
-        document.getElementById('tool-amort').innerText = totalSec4.toFixed(2);
         const desiredIncome = parseFloat(document.getElementById('desired-income').value) || 0;
         const incomeDays = parseFloat(document.getElementById('income-days').value) || 1;
         const incomeHours = parseFloat(document.getElementById('income-hours').value) || 1;
